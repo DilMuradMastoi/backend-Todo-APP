@@ -1,0 +1,1681 @@
+/* =========================================================
+   HOME.CSS - PART 1
+   Global + Hero + Hero Stats
+========================================================= */
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap");
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:"Poppins",sans-serif;
+    background:#070b18;
+    color:#fff;
+    overflow-x:hidden;
+}
+
+.home-page{
+    width:100%;
+    min-height:100vh;
+    background:
+        radial-gradient(circle at top left,#5b21b622 0%,transparent 35%),
+        radial-gradient(circle at bottom right,#06b6d422 0%,transparent 35%),
+        linear-gradient(135deg,#050816,#0b1120,#111827);
+}
+
+/* =====================================================
+   HERO
+===================================================== */
+
+.hero{
+    width:100%;
+    min-height:100vh;
+
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(420px,1fr));
+
+    align-items:center;
+    gap:70px;
+
+    padding:90px 8%;
+    position:relative;
+    overflow:hidden;
+}
+
+/* floating background */
+
+.hero::before{
+    content:"";
+    position:absolute;
+    width:650px;
+    height:650px;
+    background:#3b82f620;
+    border-radius:50%;
+    top:-220px;
+    left:-220px;
+    filter:blur(120px);
+    animation:floatOne 10s ease-in-out infinite;
+}
+
+.hero::after{
+    content:"";
+    position:absolute;
+    width:500px;
+    height:500px;
+    background:#8b5cf620;
+    border-radius:50%;
+    right:-180px;
+    bottom:-180px;
+    filter:blur(120px);
+    animation:floatTwo 12s ease-in-out infinite;
+}
+
+/* =====================================================
+   LEFT SIDE
+===================================================== */
+
+.hero-content{
+    position:relative;
+    z-index:2;
+    animation:fadeLeft 1.2s ease;
+}
+
+.hero-tag{
+
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+
+    padding:12px 24px;
+
+    border-radius:40px;
+
+    background:rgba(255,255,255,.08);
+
+    border:1px solid rgba(255,255,255,.12);
+
+    color:#38bdf8;
+
+    font-weight:600;
+
+    backdrop-filter:blur(20px);
+
+    margin-bottom:30px;
+}
+
+.hero h1{
+
+    font-size:64px;
+
+    font-weight:800;
+
+    line-height:1.15;
+
+    margin-bottom:25px;
+
+    background:linear-gradient(90deg,#ffffff,#60a5fa,#22d3ee);
+
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+.hero-description{
+
+    max-width:620px;
+
+    font-size:18px;
+
+    line-height:1.9;
+
+    color:#cbd5e1;
+
+    margin-bottom:40px;
+}
+
+/* =====================================================
+   BUTTONS
+===================================================== */
+
+.hero-buttons{
+
+    display:flex;
+
+    gap:20px;
+
+    flex-wrap:wrap;
+
+    margin-bottom:35px;
+}
+
+.primary-btn,
+.secondary-btn{
+
+    border:none;
+
+    cursor:pointer;
+
+    padding:16px 34px;
+
+    font-size:16px;
+
+    border-radius:14px;
+
+    transition:.35s;
+
+    font-weight:600;
+}
+
+.primary-btn{
+
+    color:#fff;
+
+    background:linear-gradient(135deg,#2563eb,#06b6d4);
+
+    box-shadow:0 18px 45px rgba(37,99,235,.35);
+}
+
+.primary-btn:hover{
+
+    transform:translateY(-5px);
+
+    box-shadow:0 25px 60px rgba(37,99,235,.45);
+}
+
+.secondary-btn{
+
+    color:#fff;
+
+    background:rgba(255,255,255,.08);
+
+    border:1px solid rgba(255,255,255,.15);
+
+    backdrop-filter:blur(20px);
+}
+
+.secondary-btn:hover{
+
+    background:#fff;
+
+    color:#111827;
+
+    transform:translateY(-5px);
+}
+
+/* =====================================================
+   POINTS
+===================================================== */
+
+.hero-points{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:25px;
+}
+
+.hero-points span{
+
+    background:rgba(255,255,255,.06);
+
+    border:1px solid rgba(255,255,255,.12);
+
+    padding:12px 18px;
+
+    border-radius:12px;
+
+    color:#dbeafe;
+
+    transition:.3s;
+}
+
+.hero-points span:hover{
+
+    transform:translateY(-4px);
+
+    background:#2563eb;
+}
+
+/* =====================================================
+   IMAGE
+===================================================== */
+
+.hero-image{
+
+    position:relative;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    animation:fadeRight 1.2s ease;
+}
+
+.hero-img{
+
+    width:100%;
+
+    max-width:620px;
+
+    animation:floatImage 5s ease-in-out infinite;
+
+    filter:drop-shadow(0 40px 80px rgba(37,99,235,.45));
+}
+
+/* =====================================================
+   DEMO CARD
+===================================================== */
+
+.hero-demo-card{
+
+    position:absolute;
+
+    right:0;
+
+    bottom:20px;
+
+    width:280px;
+
+    padding:22px;
+
+    border-radius:22px;
+
+    background:rgba(255,255,255,.08);
+
+    border:1px solid rgba(255,255,255,.15);
+
+    backdrop-filter:blur(25px);
+
+    box-shadow:0 15px 45px rgba(0,0,0,.35);
+
+    animation:floatCard 6s ease infinite;
+}
+
+.hero-demo-card h3{
+
+    margin-bottom:18px;
+
+    color:#38bdf8;
+}
+
+.demo-item{
+
+    margin:12px 0;
+
+    padding:12px 14px;
+
+    border-radius:12px;
+
+    background:rgba(255,255,255,.05);
+
+    transition:.3s;
+}
+
+.demo-item:hover{
+
+    transform:translateX(8px);
+
+    background:#2563eb;
+}
+
+/* =====================================================
+   HERO STATS
+===================================================== */
+
+.hero-stats{
+
+    width:85%;
+
+    margin:auto;
+
+    margin-top:-60px;
+
+    position:relative;
+
+    z-index:10;
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+
+    gap:25px;
+}
+
+.hero-stat{
+
+    padding:30px;
+
+    border-radius:24px;
+
+    background:rgba(255,255,255,.08);
+
+    border:1px solid rgba(255,255,255,.12);
+
+    backdrop-filter:blur(25px);
+
+    text-align:center;
+
+    transition:.4s;
+}
+
+.hero-stat:hover{
+
+    transform:translateY(-10px);
+
+    background:#2563eb;
+}
+
+.hero-stat h2{
+
+    font-size:42px;
+
+    margin-bottom:10px;
+
+    color:#38bdf8;
+}
+
+.hero-stat p{
+
+    color:#cbd5e1;
+}
+
+/* =====================================================
+   ANIMATIONS
+===================================================== */
+
+@keyframes floatImage{
+
+    0%,100%{
+        transform:translateY(0px);
+    }
+
+    50%{
+        transform:translateY(-22px);
+    }
+}
+
+@keyframes floatCard{
+
+    0%,100%{
+        transform:translateY(0px);
+    }
+
+    50%{
+        transform:translateY(-12px);
+    }
+}
+
+@keyframes fadeLeft{
+
+    from{
+
+        opacity:0;
+
+        transform:translateX(-70px);
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateX(0);
+    }
+}
+
+@keyframes fadeRight{
+
+    from{
+
+        opacity:0;
+
+        transform:translateX(70px);
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateX(0);
+    }
+}
+
+@keyframes floatOne{
+
+    0%,100%{
+        transform:translate(0,0);
+    }
+
+    50%{
+        transform:translate(80px,60px);
+    }
+}
+
+@keyframes floatTwo{
+
+    0%,100%{
+        transform:translate(0,0);
+    }
+
+    50%{
+        transform:translate(-60px,-80px);
+    }
+}
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media(max-width:992px){
+
+.hero{
+
+grid-template-columns:1fr;
+
+text-align:center;
+
+padding-top:120px;
+
+}
+
+.hero-content{
+
+order:2;
+
+}
+
+.hero-image{
+
+order:1;
+
+}
+
+.hero-buttons{
+
+justify-content:center;
+
+}
+
+.hero-points{
+
+justify-content:center;
+
+}
+
+.hero h1{
+
+font-size:46px;
+
+}
+
+.hero-description{
+
+margin:auto auto 40px;
+
+}
+
+.hero-demo-card{
+
+position:relative;
+
+right:auto;
+
+bottom:auto;
+
+margin-top:30px;
+
+width:100%;
+
+max-width:340px;
+
+}
+
+}
+
+@media(max-width:576px){
+
+.hero{
+
+padding:110px 25px 70px;
+
+}
+
+.hero h1{
+
+font-size:36px;
+
+}
+
+.hero-description{
+
+font-size:16px;
+
+}
+
+.primary-btn,
+.secondary-btn{
+
+width:100%;
+
+}
+
+.hero-stat h2{
+
+font-size:34px;
+
+}
+
+}
+
+
+
+/* =========================================================
+   HOME.CSS - PART 2
+   Features + Dashboard + Todo List
+========================================================= */
+
+
+/* =====================================================
+   FEATURES SECTION
+===================================================== */
+
+.features{
+
+    width:100%;
+
+    padding:100px 8%;
+
+    position:relative;
+
+}
+
+
+.features h2{
+
+    text-align:center;
+
+    font-size:42px;
+
+    font-weight:800;
+
+    margin-bottom:60px;
+
+    background:linear-gradient(
+        90deg,
+        #ffffff,
+        #38bdf8
+    );
+
+    -webkit-background-clip:text;
+
+    -webkit-text-fill-color:transparent;
+
+}
+
+
+
+.feature-grid{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(280px,1fr));
+
+    gap:30px;
+
+}
+
+
+
+.feature-card{
+
+    padding:35px 30px;
+
+    border-radius:25px;
+
+    background:
+
+    rgba(255,255,255,.07);
+
+    border:
+
+    1px solid rgba(255,255,255,.12);
+
+    backdrop-filter:blur(25px);
+
+    transition:.4s;
+
+    position:relative;
+
+    overflow:hidden;
+
+}
+
+
+
+.feature-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:120px;
+
+    height:120px;
+
+    background:#2563eb;
+
+    border-radius:50%;
+
+    filter:blur(70px);
+
+    top:-50px;
+
+    right:-50px;
+
+    opacity:.5;
+
+}
+
+
+
+.feature-card:hover{
+
+    transform:translateY(-12px);
+
+    border-color:#38bdf8;
+
+    box-shadow:
+
+    0 25px 60px rgba(0,0,0,.35);
+
+}
+
+
+
+.feature-card h3{
+
+    font-size:22px;
+
+    margin-bottom:15px;
+
+    color:#38bdf8;
+
+}
+
+
+
+.feature-card p{
+
+    color:#cbd5e1;
+
+    line-height:1.8;
+
+}
+
+
+
+/* =====================================================
+   TODO DASHBOARD
+===================================================== */
+
+
+.todo-container{
+
+    width:100%;
+
+    padding:100px 8%;
+
+}
+
+
+
+.todo-card{
+
+    max-width:1100px;
+
+    margin:auto;
+
+    padding:45px;
+
+    border-radius:30px;
+
+    background:
+
+    rgba(255,255,255,.08);
+
+    border:
+
+    1px solid rgba(255,255,255,.15);
+
+    backdrop-filter:blur(30px);
+
+    box-shadow:
+
+    0 30px 80px rgba(0,0,0,.4);
+
+}
+
+
+
+/* Dashboard Header */
+
+.dashboard-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    gap:20px;
+
+    margin-bottom:35px;
+
+}
+
+
+
+.title{
+
+    font-size:36px;
+
+    font-weight:800;
+
+}
+
+
+
+.title span{
+
+    color:#38bdf8;
+
+}
+
+
+
+.subtitle{
+
+    color:#cbd5e1;
+
+    margin-top:10px;
+
+}
+
+
+
+.logout-btn{
+
+    padding:13px 25px;
+
+    border:none;
+
+    border-radius:14px;
+
+    background:
+
+    linear-gradient(
+        135deg,
+        #ef4444,
+        #f97316
+    );
+
+    color:white;
+
+    cursor:pointer;
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+
+
+.logout-btn:hover{
+
+    transform:translateY(-5px);
+
+    box-shadow:
+
+    0 15px 35px rgba(239,68,68,.4);
+
+}
+
+
+
+/* =====================================================
+   SEARCH
+===================================================== */
+
+
+.search-input{
+
+    
+    padding:18px 22px;
+    
+    margin-bottom:15px;
+    margin-top:15px;
+
+    border-radius:15px;
+
+    outline:none;
+
+    border:
+
+    1px solid rgba(255,255,255,.15);
+
+    background:
+
+    rgba(255,255,255,.08);
+
+    color:white;
+
+    font-size:16px;
+
+}
+
+
+
+.search-input::placeholder{
+
+    color:#94a3b8;
+    
+}
+
+
+
+.search-input:focus{
+    
+    border-color:#38bdf8;
+    
+    box-shadow:
+    
+    0 0 20px rgba(56,189,248,.3);
+    
+}
+
+
+
+/* =====================================================
+ADD TODO
+===================================================== */
+
+
+.add-section{
+    
+    
+    display:flex;
+    
+    gap:15px;
+
+    margin-bottom:40px;
+    
+}
+
+
+
+.todo-input{
+
+width:100%;
+margin-bottom: 15px;
+
+    flex:1;
+
+    padding:18px 20px;
+
+    border-radius:15px;
+
+    outline:none;
+
+    border:
+
+    1px solid rgba(255,255,255,.15);
+
+    background:
+
+    rgba(255,255,255,.08);
+
+    color:white;
+
+    font-size:16px;
+
+}
+
+
+
+.todo-input::placeholder{
+
+    color:#94a3b8;
+
+}
+
+
+
+.todo-input:focus{
+
+    border-color:#22d3ee;
+
+}
+
+
+
+.add-btn{
+
+    padding:18px 30px;
+
+    border:none;
+
+    border-radius:15px;
+
+    cursor:pointer;
+
+    font-weight:700;
+
+    color:white;
+
+    background:
+
+    linear-gradient(
+        135deg,
+        #2563eb,
+        #06b6d4
+    );
+
+    transition:.3s;
+
+}
+
+
+
+.add-btn:hover{
+
+    transform:scale(1.05);
+
+    box-shadow:
+
+    0 20px 45px rgba(6,182,212,.4);
+
+}
+
+
+
+/* =====================================================
+   TODO LIST
+===================================================== */
+
+
+.todo-list{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:20px;
+
+}
+
+
+
+.todo-item{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    gap:20px;
+
+    padding:25px;
+
+    border-radius:20px;
+
+    background:
+
+    rgba(255,255,255,.06);
+
+    border:
+
+    1px solid rgba(255,255,255,.12);
+
+    transition:.35s;
+
+}
+
+
+
+.todo-item:hover{
+
+    transform:translateX(8px);
+
+    background:
+
+    rgba(255,255,255,.12);
+
+}
+
+
+
+.todo-left{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:18px;
+
+}
+
+
+
+.todo-left input{
+
+    width:22px;
+
+    height:22px;
+
+    cursor:pointer;
+
+}
+
+
+
+.todo-item h3{
+
+    font-size:20px;
+
+}
+
+
+
+.todo-item.completed h3{
+
+    text-decoration:line-through;
+
+    color:#94a3b8;
+
+}
+
+
+
+.actions{
+
+    display:flex;
+
+    gap:12px;
+
+}
+
+
+
+.edit-btn,
+.delete-btn{
+
+    padding:12px 18px;
+
+    border:none;
+
+    border-radius:12px;
+
+    cursor:pointer;
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+
+
+.edit-btn{
+
+    background:#2563eb;
+
+    color:white;
+
+}
+
+
+
+.delete-btn{
+
+    background:#ef4444;
+
+    color:white;
+
+}
+
+
+
+.edit-btn:hover,
+.delete-btn:hover{
+
+    transform:translateY(-4px);
+
+}
+
+
+
+/* =====================================================
+   EMPTY STATE
+===================================================== */
+
+
+.empty-state{
+
+    text-align:center;
+
+    padding:50px;
+
+    border-radius:20px;
+
+    background:
+
+    rgba(255,255,255,.05);
+
+}
+
+
+
+.empty-state h2{
+
+    color:#38bdf8;
+
+    margin-bottom:10px;
+
+}
+
+
+
+.empty-state p{
+
+    color:#cbd5e1;
+
+}
+
+
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+
+@media(max-width:768px){
+
+
+.features{
+
+padding:70px 25px;
+
+}
+
+
+
+.todo-container{
+
+padding:70px 25px;
+
+}
+
+
+
+.todo-card{
+
+padding:25px;
+
+}
+
+
+
+.dashboard-header{
+
+flex-direction:column;
+
+align-items:flex-start;
+
+}
+
+
+
+.title{
+
+font-size:28px;
+
+}
+
+
+
+.add-section{
+
+flex-direction:column;
+
+}
+
+
+
+.add-btn{
+
+width:100%;
+
+}
+
+
+
+.todo-item{
+
+flex-direction:column;
+
+align-items:flex-start;
+
+}
+
+
+
+.actions{
+
+width:100%;
+
+}
+
+
+
+.edit-btn,
+.delete-btn{
+
+flex:1;
+
+}
+
+
+
+}
+
+
+/* ================= STATS SECTION ================= */
+
+.stats {
+  margin-top: 80px;
+  padding: 40px;
+  background: linear-gradient(
+    135deg,
+    rgba(255,255,255,0.08),
+    rgba(255,255,255,0.02)
+  );
+  border-radius: 30px;
+  backdrop-filter: blur(15px);
+}
+
+
+.stats h2 {
+  text-align: center;
+  font-size: 38px;
+  color: white;
+  margin-bottom: 40px;
+}
+
+
+/* GRID */
+
+.stats-grid {
+
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  gap: 25px;
+
+}
+
+
+/* CARD */
+
+.stat-card {
+
+  position: relative;
+
+  padding: 35px 25px;
+
+  border-radius: 25px;
+
+  background:
+  linear-gradient(
+    145deg,
+    rgba(255,255,255,.18),
+    rgba(255,255,255,.05)
+  );
+
+  border:1px solid rgba(255,255,255,.2);
+
+  backdrop-filter: blur(20px);
+
+  text-align:center;
+
+  color:white;
+
+  overflow:hidden;
+
+  transition:.4s;
+
+}
+
+
+/* glowing effect */
+
+.stat-card::before{
+
+ content:"";
+
+ position:absolute;
+
+ width:120px;
+ height:120px;
+
+ background:#6366f1;
+
+ filter:blur(60px);
+
+ top:-40px;
+ right:-40px;
+
+ opacity:.7;
+
+}
+
+
+/* hover */
+
+.stat-card:hover{
+
+ transform:
+ translateY(-12px)
+ scale(1.03);
+
+ box-shadow:
+ 0 25px 50px rgba(0,0,0,.35);
+
+}
+
+
+
+/* NUMBER */
+
+.stat-card h1{
+
+ position:relative;
+
+ font-size:55px;
+
+ margin:0;
+
+ font-weight:800;
+
+ background:
+ linear-gradient(
+ 90deg,
+ #60a5fa,
+ #c084fc
+ );
+
+ -webkit-background-clip:text;
+
+ color:transparent;
+
+}
+
+
+
+/* TEXT */
+
+.stat-card p{
+
+ position:relative;
+
+ font-size:18px;
+
+ margin-top:15px;
+
+ color:#ddd;
+
+}
+
+
+
+/* ================= CTA ================= */
+
+
+.cta {
+
+
+ margin-top:80px;
+
+ padding:70px 40px;
+
+ text-align:center;
+
+ border-radius:35px;
+
+
+ background:
+
+ linear-gradient(
+ 135deg,
+ #4f46e5,
+ #9333ea
+ );
+
+
+ color:white;
+
+
+ box-shadow:
+
+ 0 30px 70px rgba(79,70,229,.4);
+
+
+}
+
+
+
+.cta h2{
+
+
+ font-size:42px;
+
+ margin-bottom:20px;
+
+}
+
+
+
+.cta p{
+
+
+ max-width:600px;
+
+ margin:auto;
+
+ font-size:20px;
+
+ color:#eee;
+
+ line-height:1.6;
+
+
+}
+
+
+/* BUTTON */
+
+
+.primary-btn{
+
+
+ margin-top:35px;
+
+ padding:16px 35px;
+
+
+ border:none;
+
+ border-radius:50px;
+
+
+ font-size:18px;
+
+ font-weight:700;
+
+
+ cursor:pointer;
+
+
+ background:white;
+
+ color:#4f46e5;
+
+
+ transition:.3s;
+
+
+}
+
+
+
+.primary-btn:hover{
+
+
+ transform:scale(1.08);
+
+
+ box-shadow:
+ 0 15px 35px rgba(0,0,0,.25);
+
+
+}
+
+
+
+/* ================= FOOTER ================= */
+
+
+.footer{
+
+
+ margin-top:70px;
+
+
+ padding:45px;
+
+
+ text-align:center;
+
+
+ background:
+
+ rgba(255,255,255,.05);
+
+
+ backdrop-filter:blur(20px);
+
+
+ border-top:
+
+ 1px solid rgba(255,255,255,.15);
+
+
+ color:white;
+
+
+ border-radius:30px 30px 0 0;
+
+
+}
+
+
+
+.footer h2{
+
+
+ font-size:32px;
+
+}
+
+
+
+.footer p{
+
+
+ color:#ccc;
+
+ font-size:17px;
+
+ max-width:600px;
+
+ margin:15px auto;
+
+
+}
+
+
+
+.footer small{
+
+
+ color:#999;
+
+}
+
+
+
+/* ================= RESPONSIVE ================= */
+
+
+@media(max-width:900px){
+
+
+.stats-grid{
+
+ grid-template-columns:repeat(2,1fr);
+
+}
+
+
+}
+
+
+
+@media(max-width:600px){
+
+
+.stats{
+
+ padding:20px;
+
+}
+
+.stats-grid{
+
+ grid-template-columns:1fr;
+
+}
+
+.stats h2{
+
+ font-size:30px;
+
+}
+
+.cta h2{
+
+ font-size:30px;
+
+}
+
+}
