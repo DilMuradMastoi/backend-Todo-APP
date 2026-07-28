@@ -17,23 +17,24 @@ function Home() {
   const [todo, setTodo] = useState("");
   const [todos, setTodos] = useState([]);
   const [search, setSearch] = useState("");
+  const [loading, setLoading] = useState(true);
 
   // ===========================
   // Check Login
   // ===========================
 
-  useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-      if (!currentUser) {
-        navigate("/login");
-        return;
-      }
+useEffect(() => {
+  const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+    if (!currentUser) {
+      navigate("/login");
+      return;
+    }
 
-      setUser(currentUser);
-    });
+    setUser(currentUser);
+  });
 
-    return unsubscribe;
-  }, [navigate]);
+  return unsubscribe; // ✅ unsubscribe is a function
+}, [navigate]);
 
   // ===========================
   // Load Todos
@@ -45,7 +46,6 @@ const getTodos = async () => {
     const res = await axios.get(`${API}/todos/${user.uid}`);
     setTodos(res.data.todos || []);
   } catch (err) {
-    console.log("API =", API);
     console.error(err);
     setTodos([]);
   }
@@ -98,7 +98,7 @@ const deleteTodo = async (id) => {
 const editTodo = async (item) => {
   const newText = prompt("Edit Todo", item.text);
 
-  if (!newText) return;
+  if (!newText?.trim()) return;
 
   try {
     await axios.put(`${API}/todos/${item.id}`, {
@@ -160,9 +160,7 @@ const editTodo = async (item) => {
   // Statistics
   // ===========================
 
-const todoList = Array.isArray(todos)
-  ? todos
-  : [];
+const todoList = filteredTodos;
 
 const totalTodos = todoList.length;
 
@@ -182,7 +180,9 @@ const pendingTodos = totalTodos - completedTodos;
 
         <div className="hero-content hero-bg">
 
-         Authentication and Express API.
+       <p className="hero-tech">
+  Built with React, Firebase Authentication and Express API.
+</p>
       
 <p className="hero-tag">
   ✨ Welcome to Todo Pro
@@ -211,12 +211,6 @@ const pendingTodos = totalTodos - completedTodos;
     🚀 Get Started
   </button>
 
-  {/* <button
-    className="secondary-btn"
-    onClick={logout}
-  >
-    🔓 Logout
-  </button> */}
 </div>
 
           <div className="hero-points">
