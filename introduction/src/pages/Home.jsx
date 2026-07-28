@@ -33,7 +33,7 @@ useEffect(() => {
     setUser(currentUser);
   });
 
-  return unsubscribe; // ✅ unsubscribe is a function
+  return unsubscribe; 
 }, [navigate]);
 
   // ===========================
